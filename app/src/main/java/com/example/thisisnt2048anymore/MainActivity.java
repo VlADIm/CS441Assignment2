@@ -57,5 +57,9 @@ public class MainActivity extends AppCompatActivity {
                 myText.setText(game.toString());
             }
         });
+
+        if(game.game_end_tag){
+            myText.setText("GAME OVER");
+        }
     }
 }
