@@ -9,12 +9,15 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 import java.util.Queue;
+import java.util.Random;
 import java.util.Set;
 
 public class HexGame {
 
+    public boolean game_end_tag = false;
 
     public static final int UP = 0;
     public static final int LEFT_UP = 1;
@@ -40,10 +43,20 @@ public class HexGame {
 
     public Queue<Integer> tile_changes = new LinkedList<Integer>();
 
+    public List<Integer> empty_nodes = new ArrayList<Integer>();
+
+
+
     public HexGame() {
         for (int i = 0; i < NUMBER_NODES; i++) {
             this.game_board.put(i, 0);
         }
+
+        for (int i = 0; i < NUMBER_NODES; i++) {
+            this.empty_nodes.add(i);
+        }
+
+        generateRandomTiles();
     }
 
     private int[][] loadIntoArray(int direction){
@@ -87,11 +100,18 @@ public class HexGame {
         int progression_direction = (direction < 3) ? 1 : -1 ;
         int next_node;
 
+        this.empty_nodes.clear();
+
         for (int i = 0; i < 5; i++) {
             progression_index = progression_start;
             next_node = STARTING_NODES[direction][i];
             for (int j = 0; j < array_size[i]; j++) {
+
                 this.game_board.replace(next_node, board_state[i][j]);
+
+                if(board_state[i][j] == 0){
+                    this.empty_nodes.add(next_node);
+                }
                 if(progression_index <= progression_end) {
                     next_node = next_node + (progression_direction * PROGRESSION[direction % 3][progression_index]);
                     progression_index++;
@@ -146,18 +166,61 @@ public class HexGame {
     }
 
     public void onSwipe(int direction){
+        if(game_end_tag == true) {return;}
         loadIntoMap(direction, collapseArray(direction,loadIntoArray(direction)));
+        generateRandomTiles();
     }
 
     public void reset(){
         for (int i = 0; i < NUMBER_NODES; i++) {
             this.game_board.put(i, 0);
         }
+        this.game_end_tag = false;
+    }
+
+    private void generateRandomTiles(){
+
+        Random random = new Random();
+
+        int num_nodes = random.nextInt(2) + 1;
+        int random_value = random.nextInt(2) + 1;
+        int index;
+        int node;
+
+//        System.out.println(this.empty_nodes.size());
+
+        if(this.empty_nodes.size() == 0){
+            this.game_end_tag = detectGameDeadlock();
+
+        } else {
+
+            index = random.nextInt(this.empty_nodes.size());
+            node = empty_nodes.remove(index);
+            this.game_board.replace(node, random_value * 2);
+
+        }
+
     }
 
 
     private void detectMapChange(){
         //TODO: figure out where this goes for the animations
+    }
+
+    public boolean detectGameDeadlock(){
+        int[] array_size = {3,4,5,4,3};
+        int[][] board_state = new int[5][5];
+        for (int i = 0; i < 6; i++) {
+            board_state = loadIntoArray(i);
+            for (int j = 0; j < 5; j++) {
+                for (int k = 0; k < array_size[j]-1; k++) {
+                    if(board_state[j][k] == board_state[j][k+1]){
+                        return false;
+                    }
+                }
+            }
+        }
+        return true;
     }
 
     @Override
@@ -173,6 +236,26 @@ public class HexGame {
 
 //    public static void main(String[] args){
 //        HexGame game = new HexGame();
+//        HexGame deadlocked = new HexGame();
+//
+//        for (int i = 0; i < NUMBER_NODES; i++) {
+//            deadlocked.game_board.replace(i,i);
+//        }
+//
+//        deadlocked.detectGameDeadlock();
+//
+//        System.out.println(deadlocked.game_end_tag);
+//
+//        Random random = new Random();
+//
+//
+//
+//        while(!game.game_end_tag){
+//            game.onSwipe(random.nextInt(6));
+//
+//        }
+//
+//        System.out.println(game.toString());
 //        int direction;
 //
 //        /*TEST FOR COLLAPSING ON UP*/

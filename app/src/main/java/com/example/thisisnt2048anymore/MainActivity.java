@@ -12,39 +12,49 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        View myView = findViewById(R.id.main_view);
+        //Create the hex game
 
+        final HexGame game = new HexGame();
+
+
+        View myView = findViewById(R.id.main_view);
         final TextView myText = (TextView) findViewById(R.id.text_box);
 
         myView.setOnTouchListener(new OnSwipeTouchListener(this){
             @Override
             public void onSwipeUp(){
-                myText.setText("Swipe Up Detected");
+                game.onSwipe(HexGame.UP);
+                myText.setText(game.toString());
             }
 
             @Override
             public void onSwipeLeftUp(){
-                myText.setText("Swipe Left Up Detected");
+                game.onSwipe(HexGame.LEFT_UP);
+                myText.setText(game.toString());
             }
 
             @Override
             public void onSwipeLeftDown(){
-                myText.setText("Swipe Left Down Detected");
+                game.onSwipe(HexGame.LEFT_DOWN);
+                myText.setText(game.toString());
             }
 
             @Override
             public void onSwipeDown(){
-                myText.setText("Swipe Down Detected");
+                game.onSwipe(HexGame.DOWN);
+                myText.setText(game.toString());
             }
 
             @Override
             public void onSwipeRightDown(){
-                myText.setText("Swipe Right Down Detected");
+                game.onSwipe(HexGame.RIGHT_DOWN);
+                myText.setText(game.toString());
             }
 
             @Override
             public void onSwipeRightUp(){
-                myText.setText("Swipe Right Up Detected");
+                game.onSwipe(HexGame.RIGHT_UP);
+                myText.setText(game.toString());
             }
         });
     }
