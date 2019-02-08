@@ -13,8 +13,10 @@ The back end of the game will be accomplished through use of a map, and a 2-D wi
 - [x] Write the function to load state of map into 2-D array for different direction of collapse
 - [x] Write the function to collapse the 2-D array
 - [x] Write the function to load the state of the 2-D array into the map
+- [ ] Write the function to generate new random number of blocks
+- [ ] Write the function to detect game end
 - [ ] Construct the visual representation of the game board
-- [ ] Accomplish functionality of game using buttons
+~~- [ ] Accomplish functionality of game using buttons~~
 - [ ] Add animation to the change of state of the game board
-- [ ] Change functionality of game from pushing buttons to swiping the screen
+- [x] Change functionality of game from pushing buttons to swiping the screen
 - [ ] Add music to the game and a mute button to toggle if music is played
