@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="nodes">
+        <item>@id/node0</item>
+        <item>@id/node1</item>
+        <item>@id/node2</item>
+        <item>@id/node3</item>
+        <item>@id/node4</item>
+        <item>@id/node5</item>
+        <item>@id/node6</item>
+        <item>@id/node7</item>
+        <item>@id/node8</item>
+        <item>@id/node9</item>
+        <item>@id/node10</item>
+        <item>@id/node11</item>
+        <item>@id/node12</item>
+        <item>@id/node13</item>
+        <item>@id/node14</item>
+        <item>@id/node15</item>
+        <item>@id/node16</item>
+        <item>@id/node17</item>
+        <item>@id/node18</item>
+    </array>
+
+    <array name="colors">
+        <item>@color/nodeColorEmpty</item>
+        <item>@color/nodeColor2</item>
+        <item>@color/nodeColor4</item>
+        <item>@color/nodeColor8</item>
+        <item>@color/nodeColor16</item>
+        <item>@color/nodeColor32</item>
+        <item>@color/nodeColor64</item>
+        <item>@color/nodeColor128</item>
+        <item>@color/nodeColor256</item>
+        <item>@color/nodeColor512</item>
+        <item>@color/nodeColor1024</item>
+        <item>@color/nodeColor2048</item>
+        <item>@color/nodeColor4096</item>
+        <item>@color/nodeColor8192</item>
+    </array>
+
+    <array name="text_box">
+        <!--need to add the text boxes here-->
+    </array>
+
+</resources>
