@@ -5,16 +5,257 @@
     android:id="@+id/main_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@color/colorPrimaryDark">
 
     <TextView
         android:id="@+id/text_box"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="wrap_content"
+        android:text="@string/app_name"
+        android:textAlignment="center"
+        android:autoSizeMaxTextSize="30dp"
+        android:textStyle="bold"
+        android:textSize="24dp"
+        android:textColor="@color/white"
+        android:textColorHighlight="@color/black"
+        app:layout_constraintBottom_toTopOf="@id/horizontalguideline1"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+
+    />
+
+
+    <!--android:background="@drawable/hexagon"-->
+
+    <android.support.constraint.Guideline
+        android:id="@+id/horizontalguideline1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="300dp" />
+    <android.support.constraint.Guideline
+        android:id="@+id/horizontalguideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="260dp" />
+    <android.support.constraint.Guideline
+        android:id="@+id/horizontalguideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="220dp" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="2dp" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="84dp" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="166dp" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="248dp" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="330dp" />
+
+    <ImageView
+        android:id="@+id/node0"
+        android:text=""
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/node3"
+        app:layout_constraintLeft_toLeftOf="@+id/guideline1"
+        app:layout_constraintTop_toTopOf="@id/horizontalguideline1"
+        app:srcCompat="@drawable/hexagon"
+        />
+
+    <ImageView
+        android:id="@+id/node1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/node4"
+        app:layout_constraintLeft_toLeftOf="@+id/guideline2"
+        app:layout_constraintTop_toTopOf="@id/horizontalguideline2"
+        app:srcCompat="@drawable/hexagon" />
+
+    <ImageView
+        android:id="@+id/node2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/horizontalguideline3"
+        app:layout_constraintLeft_toLeftOf="@id/guideline3"
+        app:layout_constraintBottom_toTopOf="@id/node5"
+        app:srcCompat="@drawable/hexagon" />
+
+    <ImageView
+        android:id="@+id/node3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/node0"
+        app:layout_constraintLeft_toLeftOf="@id/guideline1"
+        app:layout_constraintBottom_toTopOf="@id/node7"
+        app:srcCompat="@drawable/hexagon"/>
+
+    <ImageView
+        android:id="@+id/node4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="@id/guideline2"
+        app:layout_constraintTop_toBottomOf="@id/node1"
+        app:layout_constraintBottom_toTopOf="@id/node8"
+        app:srcCompat="@drawable/hexagon"/>
+
+    <ImageView
+        android:id="@+id/node5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="@id/guideline3"
+        app:layout_constraintTop_toBottomOf="@id/node2"
+        app:layout_constraintBottom_toTopOf="@id/node9"
+        app:srcCompat="@drawable/hexagon" />
+
+
+    <ImageView
+        android:id="@+id/node6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="@id/guideline4"
+        app:layout_constraintTop_toTopOf="@id/horizontalguideline2"
+        app:layout_constraintBottom_toTopOf="@id/node10"
+        app:srcCompat="@drawable/hexagon" />
+
+
+    <ImageView
+        android:id="@+id/node7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/node3"
+        app:layout_constraintLeft_toLeftOf="@+id/guideline1"
+        app:layout_constraintBottom_toBottomOf="wrap_content"
+        app:srcCompat="@drawable/hexagon"/>
+
+    <ImageView
+        android:id="@+id/node8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="@id/guideline2"
+        app:layout_constraintTop_toBottomOf="@id/node4"
+        app:layout_constraintBottom_toTopOf="@id/node12"
+        app:srcCompat="@drawable/hexagon"/>
+
+    <ImageView
+        android:id="@+id/node9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="@id/guideline3"
+        app:layout_constraintTop_toBottomOf="@id/node5"
+        app:layout_constraintBottom_toTopOf="@id/node13"
+        app:srcCompat="@drawable/hexagon" />
+
+    <ImageView
+        android:id="@+id/node10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="@id/guideline4"
+        app:layout_constraintTop_toBottomOf="@id/node6"
+        app:layout_constraintBottom_toTopOf="@id/node14"
+        app:srcCompat="@drawable/hexagon"/>
+
+    <ImageView
+        android:id="@+id/node11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="@id/guideline5"
+        app:layout_constraintBottom_toTopOf="@id/node15"
+        app:layout_constraintTop_toTopOf="@id/horizontalguideline1"
+        app:srcCompat="@drawable/hexagon" />
+
+    <ImageView
+        android:id="@+id/node12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="@id/guideline2"
+        app:layout_constraintTop_toBottomOf="@id/node8"
+        app:layout_constraintBottom_toBottomOf="wrap_content"
+        app:srcCompat="@drawable/hexagon" />
+
+    <ImageView
+        android:id="@+id/node13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="@id/guideline3"
+        app:layout_constraintTop_toBottomOf="@id/node9"
+        app:layout_constraintBottom_toTopOf="@id/node16"
+        app:srcCompat="@drawable/hexagon" />
+
+    <ImageView
+        android:id="@+id/node14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="@id/guideline4"
+        app:layout_constraintTop_toBottomOf="@id/node10"
+        app:layout_constraintBottom_toTopOf="@id/node17"
+        app:srcCompat="@drawable/hexagon"/>
+
+    <ImageView
+        android:id="@+id/node15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="@id/guideline5"
+        app:layout_constraintTop_toBottomOf="@id/node11"
+        app:layout_constraintBottom_toTopOf="@id/node18"
+        app:srcCompat="@drawable/hexagon"/>
+
+    <ImageView
+        android:id="@+id/node16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="@id/guideline3"
+        app:layout_constraintTop_toBottomOf="@id/node13"
+        app:layout_constraintBottom_toBottomOf="wrap_content"
+        app:srcCompat="@drawable/hexagon"/>
+
+    <ImageView
+        android:id="@+id/node17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="@id/guideline4"
+        app:layout_constraintBottom_toBottomOf="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/node14"
+        app:srcCompat="@drawable/hexagon"/>
+
+    <ImageView
+        android:id="@+id/node18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/node15"
+        app:layout_constraintLeft_toLeftOf="@id/guideline5"
+        app:srcCompat="@drawable/hexagon"/>
 
 </android.support.constraint.ConstraintLayout>
