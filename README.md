@@ -15,7 +15,7 @@ The back end of the game will be accomplished through use of a map, and a 2-D wi
 - [x] Write the function to load the state of the 2-D array into the map
 - [x] Write the function to generate new random number of blocks
 - [x] Write the function to detect game end
-- [ ] Construct the visual representation of the game board
+- [x] Construct the visual representation of the game board
 - [ ] ~~Accomplish functionality of game using buttons~~
 - [ ] Add animation to the change of state of the game board
 - [x] Change functionality of game from pushing buttons to swiping the screen

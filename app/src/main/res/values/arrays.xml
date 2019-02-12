@@ -39,8 +39,4 @@
         <item>@color/nodeColor8192</item>
     </array>
 
-    <array name="text_box">
-        <!--need to add the text boxes here-->
-    </array>
-
 </resources>
