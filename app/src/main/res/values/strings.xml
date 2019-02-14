@@ -1,5 +1,4 @@
 <resources>
     <string name="app_name">This Isn\'t 2048 Anymore</string>
-    <string name="score">High Score: </string>
     <string name="game_over">You have lost!</string>
 </resources>

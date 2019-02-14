@@ -20,3 +20,5 @@ The back end of the game will be accomplished through use of a map, and a 2-D wi
 - [ ] Add animation to the change of state of the game board
 - [x] Change functionality of game from pushing buttons to swiping the screen
 - [ ] Add music to the game and a mute button to toggle if music is played
+
+Never got to add animations, music, or chagne tile background colors.

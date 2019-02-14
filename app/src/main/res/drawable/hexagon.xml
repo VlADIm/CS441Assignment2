@@ -4,6 +4,7 @@
     android:height="80dp"
     android:viewportWidth="200.0"
     android:viewportHeight="200.0">
+
     <path
         android:fillColor="@color/nodeColorEmpty"
         android:strokeColor="@color/white"

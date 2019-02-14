@@ -45,7 +45,9 @@ public class HexGame {
 
     public List<Integer> empty_nodes = new ArrayList<Integer>();
 
-
+    public int game_score = 0;
+    public int high_score = 0;
+    public boolean generate_new_tiles = false;
 
     public HexGame() {
         for (int i = 0; i < NUMBER_NODES; i++) {
@@ -55,7 +57,7 @@ public class HexGame {
         for (int i = 0; i < NUMBER_NODES; i++) {
             this.empty_nodes.add(i);
         }
-
+        generate_new_tiles = true;
         generateRandomTiles();
     }
 
@@ -124,10 +126,19 @@ public class HexGame {
 
     private int[][] collapseArray(int direction, int[][] board_state){
 
+        int[][] board_state_start = new int[5][5];
+
         int[] array_size = {3,4,5,4,3};
         int next_index_fill;
         int i,j,k;
         int temp1;
+
+        for (i = 0; i < 5; i++) {
+            for(j = 0; j < array_size[i]; j++){
+                board_state_start[i][j] = board_state[i][j];
+            }
+        }
+
         for (i = 0; i < 5; i++) {
             next_index_fill = 0;
             j = 0;
@@ -140,6 +151,7 @@ public class HexGame {
                     if(k < array_size[i]){
                         if(board_state[i][j] == board_state[i][k]){
                             board_state[i][j] = 0;
+                            game_score += (board_state[i][k]) *2;
                             board_state[i][next_index_fill] = (board_state[i][k]) * 2;
                             board_state[i][k] = 0;
                             next_index_fill++;
@@ -162,6 +174,26 @@ public class HexGame {
                 }
             }
         }
+
+        for (i = 0; i < 5; i++) {
+            for(j = 0; j < array_size[i]; j++){
+                if(board_state_start[i][j] != board_state[i][j]){
+                    generate_new_tiles = true;
+                    break;
+                }
+            }
+        }
+
+
+//        int l;
+//        for (l = 0; l < 5; l++) {
+//            if(board_state_start[i] != board_state[i]){
+//                break;
+//            }
+//        }
+//        if(l != 5){
+//            generateRandomTiles();
+//        }
         return board_state;
     }
 
@@ -169,16 +201,25 @@ public class HexGame {
         if(game_end_tag == true) {return;}
         loadIntoMap(direction, collapseArray(direction,loadIntoArray(direction)));
         generateRandomTiles();
+        if(game_score > high_score){
+            high_score = game_score;
+        }
     }
 
     public void reset(){
         for (int i = 0; i < NUMBER_NODES; i++) {
             this.game_board.put(i, 0);
         }
+        game_score = 0;
+        generate_new_tiles = true;
         this.game_end_tag = false;
     }
 
-    private void generateRandomTiles(){
+    public void generateRandomTiles(){
+
+        if(generate_new_tiles == false){
+            return;
+        }
 
         Random random = new Random();
 
@@ -194,11 +235,17 @@ public class HexGame {
 
         } else {
 
-            index = random.nextInt(this.empty_nodes.size());
-            node = empty_nodes.remove(index);
-            this.game_board.replace(node, random_value * 2);
+            for (int i = 0; (this.empty_nodes.size() != 0) && (i < num_nodes);i++) {
+                index = random.nextInt(this.empty_nodes.size());
+                node = empty_nodes.remove(index);
+                this.game_board.replace(node, random_value * 2);
+                game_score += random_value;
+                random_value = random.nextInt(2) + 1;
+            }
 
         }
+
+        generate_new_tiles = false;
 
     }
 
